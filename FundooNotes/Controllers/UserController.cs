@@ -39,5 +39,28 @@ namespace FundooNotes.Controllers
                 throw ex;
             }
         }
+        //HTTP method to handle login user request
+        [HttpPost("Login/{email}/{password}")]
+        public ActionResult LoginUser(string email, string password)
+        {
+            try
+            {
+                var Id = fundo.Users.Where(x => x.email == email && x.password == password).FirstOrDefault();
+                if (Id == null)
+                {
+                    return this.BadRequest(new { success = false, message = $"Invalid EmailId or Password" });
+                }
+                var result = this.userBL.LoginUser(email, password);
+                if (result != null)
+                {
+                    return this.Ok(new { success = true, message = $"Login Successful {result}" });
+                }
+                return this.BadRequest(new { success = false, message = $"Login failed {result}" });
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

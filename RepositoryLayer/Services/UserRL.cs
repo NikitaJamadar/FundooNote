@@ -1,10 +1,15 @@
 ﻿using DatabaseLayer;
+using Experimental.System.Messaging;
 using Microsoft.Extensions.Configuration;
+using Microsoft.IdentityModel.Tokens;
 using RepositoryLayer.Entity;
 using RepositoryLayer.FundooNoteContext;
 using RepositoryLayer.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
+using System.Linq;
+using System.Security.Claims;
 using System.Text;
 
 namespace RepositoryLayer.Services
@@ -64,5 +69,46 @@ namespace RepositoryLayer.Services
                 throw ex;
             }
         }
+        //Creating method to login user
+        public string LoginUser(string email, string password)
+        {
+            try
+            {
+               
+                var result = fundo.Users.Where(u => u.email == email && u.password == password).FirstOrDefault();
+                if (result == null)
+                {
+                    return null;
+                }
+                return GetJWTToken(email, result.userID);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        // Generate JwT token
+        public static string GetJWTToken(string email, int UserID)
+        {
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var tokenKey = Encoding.ASCII.GetBytes("THIS_IS_MY_KEY_TO_GENERATE_TOKEN");
+            var tokenDescriptor = new SecurityTokenDescriptor
+            {
+                Subject = new ClaimsIdentity(new Claim[]
+                {
+                    new Claim("email", email),
+                    new Claim("userId",UserID.ToString())
+                }),
+                Expires = DateTime.UtcNow.AddHours(1),
+                SigningCredentials =
+                new SigningCredentials(
+                    new SymmetricSecurityKey(tokenKey),
+                    SecurityAlgorithms.HmacSha256Signature)
+            };
+            var token = tokenHandler.CreateToken(tokenDescriptor);
+            return tokenHandler.WriteToken(token);
+        }
+        
     }
 }

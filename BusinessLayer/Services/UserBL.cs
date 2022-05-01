@@ -28,5 +28,17 @@ namespace BusinessLayer.Services
                 throw ex;
             }
         }
+        //Creating method to login user
+        public string LoginUser(string email, string password)
+        {
+            try
+            {
+                return userRL.LoginUser(email, password);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }
