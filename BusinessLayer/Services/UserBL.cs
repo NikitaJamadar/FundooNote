@@ -64,5 +64,17 @@ namespace BusinessLayer.Services
                 throw ex;
             }
         }
+        //Creating method to get user
+        public User GetUser(int userid)
+        {
+            try
+            {
+                return this.userRL.GetUser(userid);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

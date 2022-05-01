@@ -216,5 +216,18 @@ namespace RepositoryLayer.Services
                 throw ex;
             }
         }
+        //Creating method to get details of user
+        public User GetUser(int userid)
+        {
+            try
+            {
+                var result = fundo.Users.Where(u => u.userID == userid).FirstOrDefault();
+                return result;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

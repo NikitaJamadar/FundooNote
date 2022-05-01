@@ -109,5 +109,28 @@ namespace FundooNotes.Controllers
                 throw ex;
             }
         }
+        //HTTP method to handle get user request
+        [HttpGet("GetUser/{UserId}")]
+        public ActionResult GetUser(int UserId)
+        {
+            try
+            {
+                var Id = fundo.Users.Where(x => x.userID == UserId).FirstOrDefault();
+                if (Id == null)
+                {
+                    return this.BadRequest(new { success = false, message = $"User doesn't exists" });
+                }
+                var getUserData = this.userBL.GetUser(UserId);
+                if (getUserData != null)
+                {
+                    return this.Ok(new { success = false, message = "details get successfully", data = getUserData });
+                }
+                return this.BadRequest(new { success = true, message = "Failed to get user details" });
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }
