@@ -1,5 +1,6 @@
 ﻿using BusinessLayer.Interfaces;
 using DatabaseLayer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using RepositoryLayer.FundooNoteContext;
@@ -74,6 +75,34 @@ namespace FundooNotes.Controllers
                     return this.Ok(new { success = true, message = $"Mail sent successfully : {result}" });
                 }
                 return this.BadRequest(new { success = false, message = $"Failed to send mail : {result}" });
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        //HTTP method to handle change password request
+        [Authorize]
+        [HttpPost("ChangePassword")]
+        public ActionResult ChangePassword(PasswordValidation valid)
+        {
+            try
+            {
+                var userid = User.Claims.FirstOrDefault(x => x.Type.ToString().Equals("userId", StringComparison.InvariantCultureIgnoreCase));
+                int userId = Int32.Parse(userid.Value);
+                var result = fundo.Users.Where(u => u.userID == userId).FirstOrDefault();
+                string email = result.email.ToString();
+                bool res = userBL.ChangePassword(email, valid);
+
+                if (res == false)
+                {
+                    return this.BadRequest(new { success = false, message = "Enter valid password" });
+
+                }
+                else
+                {
+                    return this.Ok(new { success = true, message = "Password changed successfully" });
+                }
             }
             catch (Exception ex)
             {

@@ -194,5 +194,27 @@ namespace RepositoryLayer.Services
             var token = tokenHandler.CreateToken(tokenDescriptor);
             return tokenHandler.WriteToken(token);
         }
+        //Creating method to change the user password
+        public bool ChangePassword(string email, PasswordValidation valid)
+        {
+            try
+            {
+                if (valid.newPassword.Equals(valid.confirmPassword))
+                {
+                    var user = fundo.Users.Where(x => x.email == email).FirstOrDefault();
+                    user.password = EncryptPassword(valid.confirmPassword);
+                    fundo.SaveChanges();
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }
