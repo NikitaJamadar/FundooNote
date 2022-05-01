@@ -38,6 +38,8 @@ namespace FundooNotes
             services.AddControllers().AddNewtonsoftJson(options => options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
             services.AddTransient<IUserBL, UserBL>();
             services.AddTransient<IUserRL, UserRL>();
+            services.AddTransient<INoteBL, NoteBL>();
+            services.AddTransient<INoteRL, NoteRL>();
             services.AddDbContext<FunduContext>(opts => opts.UseSqlServer(Configuration["ConnectionStrings:Strings"]));
 
             services.AddAuthentication(x =>
