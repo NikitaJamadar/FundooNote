@@ -62,5 +62,23 @@ namespace FundooNotes.Controllers
                 throw ex;
             }
         }
+        //HTTP method to handle forgrt password request
+        [HttpPost("ForgetPassword/{email}")]
+        public ActionResult ForgetPassword(string email)
+        {
+            try
+            {
+                var result = this.userBL.ForgetPassword(email);
+                if (result != false)
+                {
+                    return this.Ok(new { success = true, message = $"Mail sent successfully : {result}" });
+                }
+                return this.BadRequest(new { success = false, message = $"Failed to send mail : {result}" });
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

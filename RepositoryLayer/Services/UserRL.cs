@@ -109,6 +109,90 @@ namespace RepositoryLayer.Services
             var token = tokenHandler.CreateToken(tokenDescriptor);
             return tokenHandler.WriteToken(token);
         }
-        
+        //Creating method to forget password which will return token
+        public bool ForgetPassword(string email)
+        {
+            try
+            {
+                var result = fundo.Users.FirstOrDefault(u => u.email == email);
+                if (result == null)
+                {
+                    return false;
+                }
+                // Addd message Queue
+                MessageQueue queue;
+                if (MessageQueue.Exists(@".\Private$\FundooQueue"))
+                {
+                    queue = new MessageQueue(@".\Private$\FundooQueue");
+                }
+                else
+                {
+                    queue = MessageQueue.Create(@".\Private$\FundooQueue");
+                }
+                Message myMessage = new Message();
+                myMessage.Formatter = new BinaryMessageFormatter();
+                myMessage.Body = GetJWTToken(email, result.userID);
+                queue.Send(myMessage);
+                Message msg = queue.Receive();
+                msg.Formatter = new BinaryMessageFormatter();
+                EmailService.SendMail(email, myMessage.Body.ToString());
+                queue.ReceiveCompleted += new ReceiveCompletedEventHandler(msmqQueue_ReceiveCompleted);
+                queue.BeginReceive();
+                queue.Close();
+                return true;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        private void msmqQueue_ReceiveCompleted(object sender, ReceiveCompletedEventArgs e)
+        {
+            try
+            {
+                MessageQueue queue = (MessageQueue)sender;
+                Message msg = queue.EndReceive(e.AsyncResult);
+                EmailService.SendMail(e.Message.ToString(), GetJWTToken(e.Message.ToString()));
+                queue.BeginReceive();
+            }
+            catch (MessageQueueException ex)
+            {
+                if (ex.MessageQueueErrorCode ==
+                    MessageQueueErrorCode.AccessDenied)
+                {
+                    Console.WriteLine("Access is denied. " +
+                        "Queue might be a system queue.");
+                }
+                // Handle other sources of MessageQueueException.
+            }
+        }
+
+        //Creating get jwt token method with only one parameter to get token 
+        private string GetJWTToken(string email)
+        {
+
+            if (email == null)
+            {
+                return null;
+            }
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var tokenKey = Encoding.ASCII.GetBytes("THIS_IS_MY_KEY_TO_GENERATE_TOKEN");
+            var tokenDescriptor = new SecurityTokenDescriptor
+            {
+                Subject = new ClaimsIdentity(new Claim[]
+                {
+                    new Claim("Email",email)
+                }),
+                Expires = DateTime.UtcNow.AddHours(1),
+                SigningCredentials =
+                new SigningCredentials(
+                    new SymmetricSecurityKey(tokenKey),
+                    SecurityAlgorithms.HmacSha256Signature)
+            };
+            var token = tokenHandler.CreateToken(tokenDescriptor);
+            return tokenHandler.WriteToken(token);
+        }
     }
 }

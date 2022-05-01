@@ -40,5 +40,17 @@ namespace BusinessLayer.Services
                 throw ex;
             }
         }
+        //Creating method to forget password which will return token
+        public bool ForgetPassword(string email)
+        {
+            try
+            {
+                return this.userRL.ForgetPassword(email);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }
