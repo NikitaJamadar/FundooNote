@@ -1,0 +1,15 @@
+C:\Users\Nikita\Desktop\CFP\FundooNotes\BusinessLayer\bin\Debug\netcoreapp3.1\BusinessLayer.deps.json
+C:\Users\Nikita\Desktop\CFP\FundooNotes\BusinessLayer\bin\Debug\netcoreapp3.1\BusinessLayer.dll
+C:\Users\Nikita\Desktop\CFP\FundooNotes\BusinessLayer\bin\Debug\netcoreapp3.1\BusinessLayer.pdb
+C:\Users\Nikita\Desktop\CFP\FundooNotes\BusinessLayer\bin\Debug\netcoreapp3.1\DatabaseLayer.dll
+C:\Users\Nikita\Desktop\CFP\FundooNotes\BusinessLayer\bin\Debug\netcoreapp3.1\RepositoryLayer.dll
+C:\Users\Nikita\Desktop\CFP\FundooNotes\BusinessLayer\bin\Debug\netcoreapp3.1\RepositoryLayer.pdb
+C:\Users\Nikita\Desktop\CFP\FundooNotes\BusinessLayer\bin\Debug\netcoreapp3.1\DatabaseLayer.pdb
+C:\Users\Nikita\Desktop\CFP\FundooNotes\BusinessLayer\obj\Debug\netcoreapp3.1\BusinessLayer.csproj.AssemblyReference.cache
+C:\Users\Nikita\Desktop\CFP\FundooNotes\BusinessLayer\obj\Debug\netcoreapp3.1\BusinessLayer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Nikita\Desktop\CFP\FundooNotes\BusinessLayer\obj\Debug\netcoreapp3.1\BusinessLayer.AssemblyInfoInputs.cache
+C:\Users\Nikita\Desktop\CFP\FundooNotes\BusinessLayer\obj\Debug\netcoreapp3.1\BusinessLayer.AssemblyInfo.cs
+C:\Users\Nikita\Desktop\CFP\FundooNotes\BusinessLayer\obj\Debug\netcoreapp3.1\BusinessLayer.csproj.CoreCompileInputs.cache
+C:\Users\Nikita\Desktop\CFP\FundooNotes\BusinessLayer\obj\Debug\netcoreapp3.1\BusinessLayer.csproj.CopyComplete
+C:\Users\Nikita\Desktop\CFP\FundooNotes\BusinessLayer\obj\Debug\netcoreapp3.1\BusinessLayer.dll
+C:\Users\Nikita\Desktop\CFP\FundooNotes\BusinessLayer\obj\Debug\netcoreapp3.1\BusinessLayer.pdb
