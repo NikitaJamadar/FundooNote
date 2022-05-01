@@ -1,0 +1,10 @@
+C:\Users\Nikita\Desktop\CFP\FundooNotes\DatabaseLayer\bin\Debug\netcoreapp3.1\DatabaseLayer.deps.json
+C:\Users\Nikita\Desktop\CFP\FundooNotes\DatabaseLayer\bin\Debug\netcoreapp3.1\DatabaseLayer.dll
+C:\Users\Nikita\Desktop\CFP\FundooNotes\DatabaseLayer\bin\Debug\netcoreapp3.1\DatabaseLayer.pdb
+C:\Users\Nikita\Desktop\CFP\FundooNotes\DatabaseLayer\obj\Debug\netcoreapp3.1\DatabaseLayer.csproj.AssemblyReference.cache
+C:\Users\Nikita\Desktop\CFP\FundooNotes\DatabaseLayer\obj\Debug\netcoreapp3.1\DatabaseLayer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Nikita\Desktop\CFP\FundooNotes\DatabaseLayer\obj\Debug\netcoreapp3.1\DatabaseLayer.AssemblyInfoInputs.cache
+C:\Users\Nikita\Desktop\CFP\FundooNotes\DatabaseLayer\obj\Debug\netcoreapp3.1\DatabaseLayer.AssemblyInfo.cs
+C:\Users\Nikita\Desktop\CFP\FundooNotes\DatabaseLayer\obj\Debug\netcoreapp3.1\DatabaseLayer.csproj.CoreCompileInputs.cache
+C:\Users\Nikita\Desktop\CFP\FundooNotes\DatabaseLayer\obj\Debug\netcoreapp3.1\DatabaseLayer.dll
+C:\Users\Nikita\Desktop\CFP\FundooNotes\DatabaseLayer\obj\Debug\netcoreapp3.1\DatabaseLayer.pdb
