@@ -44,7 +44,10 @@ C:\Users\Nikita\Desktop\CFP\FundooNotes\FundooNotes\bin\Debug\netcoreapp3.1\Syst
 C:\Users\Nikita\Desktop\CFP\FundooNotes\FundooNotes\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
 C:\Users\Nikita\Desktop\CFP\FundooNotes\FundooNotes\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
 C:\Users\Nikita\Desktop\CFP\FundooNotes\FundooNotes\bin\Debug\netcoreapp3.1\System.Runtime.Caching.dll
+C:\Users\Nikita\Desktop\CFP\FundooNotes\FundooNotes\bin\Debug\netcoreapp3.1\System.Runtime.CompilerServices.Unsafe.dll
 C:\Users\Nikita\Desktop\CFP\FundooNotes\FundooNotes\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
+C:\Users\Nikita\Desktop\CFP\FundooNotes\FundooNotes\bin\Debug\netcoreapp3.1\System.Text.Encodings.Web.dll
+C:\Users\Nikita\Desktop\CFP\FundooNotes\FundooNotes\bin\Debug\netcoreapp3.1\System.Text.Json.dll
 C:\Users\Nikita\Desktop\CFP\FundooNotes\FundooNotes\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
 C:\Users\Nikita\Desktop\CFP\FundooNotes\FundooNotes\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
 C:\Users\Nikita\Desktop\CFP\FundooNotes\FundooNotes\bin\Debug\netcoreapp3.1\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll

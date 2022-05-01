@@ -185,6 +185,10 @@
             "Swashbuckle.AspNetCore.SwaggerUI": {
               "target": "Package",
               "version": "[6.3.0, )"
+            },
+            "System.Text.Json": {
+              "target": "Package",
+              "version": "[6.0.3, )"
             }
           },
           "imports": [

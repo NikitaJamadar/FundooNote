@@ -22,5 +22,6 @@ namespace RepositoryLayer.Entity
         public virtual User User { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime ModifiedAt { get; set; }
+        public ICollection<Label> Labels { get; set; }
     }
 }
