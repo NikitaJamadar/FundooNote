@@ -13,5 +13,6 @@ namespace BusinessLayer.Interfaces
         public bool ForgetPassword(string email);
         public bool ChangePassword(string email, PasswordValidation valid);
         public User GetUser(int userid);
+        public List<User> GetAllUsers();
     }
 }

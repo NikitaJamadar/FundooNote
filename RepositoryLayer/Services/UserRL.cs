@@ -229,5 +229,18 @@ namespace RepositoryLayer.Services
                 throw ex;
             }
         }
+        //Creating method to get details of all users
+        public List<User> GetAllUsers()
+        {
+            try
+            {
+                List<User> users = fundo.Users.ToList();
+                return users;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

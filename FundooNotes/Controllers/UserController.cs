@@ -132,5 +132,23 @@ namespace FundooNotes.Controllers
                 throw ex;
             }
         }
+        //HTTP method to handle get all users request
+        [HttpGet("GetAllUsers")]
+        public ActionResult GetAllUsers()
+        {
+            try
+            {
+                var getUsersData = this.userBL.GetAllUsers();
+                if (getUsersData != null)
+                {
+                    return this.Ok(new { success = false, message = "details get successfully", data = getUsersData });
+                }
+                return this.BadRequest(new { success = true, message = "Empty or Failed to get User details" });
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }
